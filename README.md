@@ -11,3 +11,10 @@ Example:
     $ python3 main.py
 
 
+
+
+Second exercise was to add pre-commit hooks and make sure to run them
+
+git add .
+git commit -m "<enter-message>"
+git push origin
