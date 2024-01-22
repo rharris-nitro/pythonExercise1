@@ -1,0 +1,18 @@
+# See https://pre-commit.com for more information
+# See https://pre-commit.com/hooks.html for more hooks
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v3.2.0
+    hooks:
+
+            # removes extra whitespaces
+    -   id: trailing-whitespace
+
+            # adds empty string at the end of each file
+    -   id: end-of-file-fixer
+
+            # .yaml files are properly structured
+    -   id: check-yaml
+
+            # doesn't allow committing of large files >500Kb
+    -   id: check-added-large-files
