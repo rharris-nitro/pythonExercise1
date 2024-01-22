@@ -11,8 +11,24 @@ repos:
             # adds empty string at the end of each file
     -   id: end-of-file-fixer
 
-            # .yaml files are properly structured
+            # checks files are properly structured
     -   id: check-yaml
+    -   id: check-toml
+    -   id: check-json
+    -   id: check-xml
 
             # doesn't allow committing of large files >500Kb
     -   id: check-added-large-files
+
+            # prohibits unresolved conflicts
+    -   id: check-merge-conflict
+
+            # validates .py files
+    -   id: check-ast
+
+            # double quotes to single quotes
+    -   id: double-quote-string-fixer
+
+            # writes debug statements for pdb and ipdb
+    -   id: debug-statements
+
