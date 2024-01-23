@@ -31,3 +31,7 @@ Second exercise was to add pre-commit hooks and make sure to run them
 
     Push to origin:
         -   git push -u origin {branch-name}
+
+    Create Pull Request on GitHub webapp:
+        -   Under "Pull requests", a new notification should show up to "Compare & pull requests". Click this.
+        -   In order to merge without PR, use `git merge main`. YOU DO NOT WANT TO DO THIS!!! It merges your personal remote branch to the main without review.
