@@ -13,11 +13,11 @@ First coding exercise to get experience in a professional environment
 
 
 
-Second exercise was to add pre-commit hooks and make sure to run them
+Second exercise was to properly understand how to push something to GitHub
 
     Clone repo:
         -   git clone {git@github.com:Nitro... ...app.git}
-    
+
     Create local branch:
         -   git fetch origin
         -   git checkout --no-track -b {branch-name} origin/main
@@ -30,8 +30,11 @@ Second exercise was to add pre-commit hooks and make sure to run them
         -   git commit -m "commit message"
 
     Push to origin:
-        -   git push -u origin {branch-name}
+        -   git push (-u) origin {branch-name}  # only use -u if branch is on GitHub
 
     Create Pull Request on GitHub webapp:
-        -   Under "Pull requests", a new notification should show up to "Compare & pull requests". Click this.
+        -   Under "Pull requests", a new notification should show up to "Compare & pull requests". Click this.  # refer to PR#406
         -   In order to merge without PR, use `git merge main`. YOU DO NOT WANT TO DO THIS!!! It merges your personal remote branch to the main without review.
+
+
+Exercise 3 is learning about pre-commit hooks. Link: https://medium.com/@anton-k./how-to-set-up-pre-commit-hooks-with-python-2b512290436
