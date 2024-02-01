@@ -38,3 +38,5 @@ Second exercise was to properly understand how to push something to GitHub
 
 
 Exercise 3 is learning about pre-commit hooks. Link: https://medium.com/@anton-k./how-to-set-up-pre-commit-hooks-with-python-2b512290436
+
+    Pre-commit hooks are script tests ran before you commit your changes. They check for format and validity.
