@@ -10,6 +10,7 @@ Create local branch:
 
 Add to Staging Area:
     -   git status  # copy filepath
+    -   git diff    # to see the changes
     -   git add {filepath}
 
 Commit files to local repo: # best practice is one file at a time
