@@ -13,7 +13,6 @@ repos:
         args: [— maxkb=1000]
     -   id: check-merge-conflict    # stops unresolved conflicts
     -   id: check-ast   # checks .py files are valid
-    -   id: double-quote-string-fixer   # checks quote marks
     -   id: debug-statements    # helps debugger statements
 
 -   repo: https://github.com/PyCQA/isort
