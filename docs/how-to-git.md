@@ -6,7 +6,7 @@ Clone repo:
 
 Create local branch:
     -   git fetch origin
-    -   git checkout --no-track -b {branch-name} origin/main
+    -   git checkout -b {branch-name} origin/main
 
 Add to Staging Area:
     -   git status  # copy filepath
