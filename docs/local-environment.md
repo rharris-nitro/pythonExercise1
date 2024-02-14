@@ -18,6 +18,13 @@ Setting up the local environment is simple:
 - Setup pre-commit hooks.
   [All About Precommit Hooks](all-about-precommit-hooks.md)
 
+- Install Hook for git repo
+
+```bash
+cd pythonExercise1
+pre-commit install
+```
+
 - Download and install Python
   [Installing Python](installing-python.md)
 
