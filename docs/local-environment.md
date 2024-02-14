@@ -1,79 +1,64 @@
 # Local environment<a name="debugging-the-app"></a>
 
 - [Setup local environment](#setup-local-environment)
-  - [General](#general-1)
-  - [For Windows](#for-windows)
-  - [For macOS](#for-macOS)
-  - [For Linux (Ubuntu/Debian)](#for-ubuntu-debian)
-  - [For Linux (Fedora)](#for-fedora)
+  - [Overview](#overview)
+  - [Cloning the Repository](#clone-repo)
+  - [Pre-commit Hooks](#precommit-hooks)
+  - [Installing Python](#installing-python)
 
 ## Setup local environment<a name="setup-local-environment"></a>
 
-### General<a name="general-1"></a>
+### Overview<a name="overview"></a>
 
-Setting up the local environment is simple.
+Setting up the local environment is simple:
 
-In order to run the application, you should have Python installed.
+- Clone the repository in a specific file path.
+  See also: [How To: Git](how-to-git.md)
 
-### For Windows<a name="for-windows"></a>
+- Setup pre-commit hooks.
+  [All About Precommit Hooks](all-about-precommit-hooks.md)
 
-1. Open a Web Browser:
-   Open your preferred web browser and go to the official Python website: [Python Downloads](https://www.python.org/downloads/).
+- Install Hook for git repo
 
-1. Download Python:
-   Click on the "Downloads" tab and select the version of Python you want. Choose the latest version marked as "Latest Python 3 Release."
+```bash
+cd pythonExercise1
+pre-commit install
+```
 
-1. Run the Installer:
-   Once the installer is downloaded, double-click on the downloaded file (python-3.x.x.exe) to run the installer.
+- Download and install Python
+  [Installing Python](installing-python.md)
 
-1. Configure Python:
-   During the installation, make sure to check the box that says "Add Python to PATH." This makes it easier to run Python from the terminal.
+- Build Docker image and run container
+  [Setting Up Docker](docker-setup.md)
 
-1. Complete Installation:
-   Follow the prompts in the Python Installer. Click "Install Now" to start the installation process.
+### Cloning the Repository<a name="clone-repo"></a>
 
-1. Verify Installation:
-   Open a new Command Prompt and type `python --version`
+- Head to where you want to put the repo on your machine with:
+  `cd /path/to/your/directory`
 
-You should see the installed Python version.
+- Then use the clone command:
+  `git clone https://github.com/rharris-nitro/pythonExercise1.git`
 
-### For macOS<a name="for-macOS"></a>
+### Pre-commit Hooks<a name="precommit-hooks"></a>
 
-1. Open Terminal:
-   Open the Terminal application. You can find it using Spotlight by pressing Cmd + Space and typing "Terminal."
+- Head to the current `.pre-commit-config.yaml` in this repo to see what is best to use in my opinion.
 
-1. Install Homebrew (if not installed):
-   `/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"`
+### Installing Python<a name="installing-python"></a>
 
-1. Install Python using Homebrew:
-   `brew install python`
+- Download and install Python
+  [Installing Python](installing-python.md)
 
-1. Verify Installation:
-   Type the following command to check the installed Python version with `python3 --version`
+### Build Docker image and run container
 
-### For Linux (Ubuntu/Debian)<a name="for-ubuntu-debian"></a>
+- Build the Docker image using the provided Dockerfile:
+  `docker build -t my-python-app .`
+  Replace my-python-app with your desired name for your Docker image
 
-1. Open Terminal:
-   Open a terminal window by pressing Ctrl + Alt + T.
+- Run a container from the built Docker image:
+  `docker run my-python-app`
 
-1. Update Package List:
-   `sudo apt-get update`
+You should see the output of your Python script:
+\[1, 2, 3, 4, 5, 6, 7, 8, 9, 10\]
 
-1. Install Python:
-   `sudo apt-get install python3`
-
-1. Verify Installation:
-   Type the following command to check the installed Python version:
-   `python3 --version`
-
-### For Linux (Fedora)<a name="for-fedora"></a>
-
-1. Open Terminal:
-   Open a terminal window by pressing Ctrl + Alt + T.
-
-1. Install Python:
-   `sudo dnf install python3`
-
-1. Verify Installation:
-   Type the following command to check the installed Python version:
-   `python3 --version`
+Additional notes:
+If you encounter any issues during the build or run steps, ensure that your Dockerfile and Python script are in the correct locations, and there are no typos in the commands.

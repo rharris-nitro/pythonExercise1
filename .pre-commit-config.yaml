@@ -1,7 +1,7 @@
 
 repos:
 -   repo: https://github.com/pre-commit/pre-commit-hooks
-    rev: v3.2.0
+    rev: v4.5.0
     hooks:
     -   id: trailing-whitespace # removes whitespace
     -   id: end-of-file-fixer   # adds empty stringto end of file
@@ -13,7 +13,6 @@ repos:
         args: [— maxkb=1000]
     -   id: check-merge-conflict    # stops unresolved conflicts
     -   id: check-ast   # checks .py files are valid
-    -   id: double-quote-string-fixer   # checks quote marks
     -   id: debug-statements    # helps debugger statements
 
 -   repo: https://github.com/PyCQA/isort
@@ -30,16 +29,19 @@ repos:
         -   mdformat-black
         -   mdformat-config
         -   mdformat-toc
+
 -   repo: https://github.com/psf/black
-    rev: 23.12.0
+    rev: 24.2.0
     hooks:
     -   id: black
+
 -   repo: https://github.com/pre-commit/mirrors-mypy
     # Mypy is a static type checker for Python
-    rev: v1.7.1
+    rev: v1.8.0
     hooks:
     -   id: mypy
         entry: mypy
+
 -   repo: https://github.com/PyCQA/pylint
     rev: v3.0.3
     hooks:
