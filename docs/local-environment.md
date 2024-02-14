@@ -3,6 +3,7 @@
 - [Setup local environment](#setup-local-environment)
   - [Overview](#overview)
   - [Cloning the Repository](#clone-repo)
+  - [Pre-commit Hooks](#precommit-hooks)
   - [Installing Python](#installing-python)
 
 ## Setup local environment<a name="setup-local-environment"></a>
@@ -13,6 +14,9 @@ Setting up the local environment is simple:
 
 - Clone the repository in a specific file path.
   See also: [How To: Git](how-to-git.md)
+
+- Setup pre-commit hooks.
+  [All About Precommit Hooks](all-about-precommit-hooks.md)
 
 - Download and install Python
   [Installing Python](installing-python.md)
@@ -27,6 +31,10 @@ Setting up the local environment is simple:
 
 - Then use the clone command:
   `git clone https://github.com/rharris-nitro/pythonExercise1.git`
+
+### Pre-commit Hooks<a name="precommit-hooks"></a>
+
+- Head to the current `.pre-commit-config.yaml` in this repo to see what is best to use in my opinion.
 
 ### Installing Python<a name="installing-python"></a>
 
@@ -47,4 +55,3 @@ You should see the output of your Python script:
 
 Additional notes:
 If you encounter any issues during the build or run steps, ensure that your Dockerfile and Python script are in the correct locations, and there are no typos in the commands.
-
