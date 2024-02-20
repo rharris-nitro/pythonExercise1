@@ -5,6 +5,8 @@
   - [Cloning the Repository](#clone-repo)
   - [Pre-commit Hooks](#precommit-hooks)
   - [Installing Python](#installing-python)
+- [Docker Build & Run](#build-and-run)
+  - [Run App](#running)
 
 ## Setup local environment<a name="setup-local-environment"></a>
 
@@ -48,17 +50,48 @@ pre-commit install
 - Download and install Python
   [Installing Python](installing-python.md)
 
-### Build Docker image and run container
+## Build Docker image and run container<a name="build-and-run"></a>
+
+### Run App<a name="running"></a>
 
 - Build the Docker image using the provided Dockerfile:
-  `docker build -t my-python-app .`
-  Replace my-python-app with your desired name for your Docker image
+
+  ```bash
+  docker build -t my-python-app-main --target main .
+  ```
+
+  Replace my-python-app-main with your desired name for your main Docker image
 
 - Run a container from the built Docker image:
-  `docker run my-python-app`
+  `docker run my-python-app-main`
 
 You should see the output of your Python script:
 \[1, 2, 3, 4, 5, 6, 7, 8, 9, 10\]
 
-Additional notes:
-If you encounter any issues during the build or run steps, ensure that your Dockerfile and Python script are in the correct locations, and there are no typos in the commands.
+### Testing App<a name="testing"></a>
+
+- Build the Docker image using the provided Dockerfile:
+
+  ```bash
+  docker build -t my-python-app-test --target test .
+  ```
+
+  Replace my-python-app-test with your desired name for your testing Docker image
+
+- Run a container from the built Docker image:
+  `docker run my-python-app-test`
+
+You should see the output of your pytest test:
+
+```bash
+============================= test session starts ==============================
+platform linux -- Python 3.11.8, pytest-7.4.3, pluggy-1.4.0
+rootdir: /
+collected 2 items
+
+test_main.py ..                                                          [100%]
+
+============================== 2 passed in 0.01s ===============================
+```
+
+For more info about how pyTest works, visit [Pytest for Absolute Beginners](https://medium.com/analytics-vidhya/pytest-for-absolute-beginners-4a166324b350)
