@@ -1,9 +1,21 @@
 # Dockerfile
 
-FROM python:3.11
+FROM python:3.11 AS base
 
-WORKDIR /pythonExercise1
+FROM base AS main
 
-COPY app/main.py .
+    WORKDIR /pythonExercise1
 
-CMD ["python", "main.py"]
+    COPY ./app/main.py .
+
+    CMD ["python", "main.py"]
+
+FROM base AS test
+
+    COPY app/ app/
+    COPY tests/test_main.py .
+
+    COPY requirements-test.txt .
+    RUN pip install -r requirements-test.txt
+
+    CMD ["pytest", "test_main.py"]
