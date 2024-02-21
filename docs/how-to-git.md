@@ -7,31 +7,31 @@
 
 ```mermaid
 sequenceDiagram
-    participant U as Working Directory (Untracked)
-    participant I as Staging Area (Index)
-    participant H as Local Repo (Head)
-    participant O as Remote Repo (Origin)
+  participant directory as Working Directory (Untracked)
+  participant index as Staging Area (Index)
+  participant head as Local Repo (Head)
+  participant origin as Remote Repo (Origin)
 
-    Note over U,O: Cloning
-    O-->>H: git clone (GitHub URL)
-    O-->>U: git clone (GitHub URL)
+  Note over directory,origin: Cloning
+  origin-->>head: git fetch (remote repo)
+  head-->>directory: git checkout
 
-    Note over U,O: Pulling
-    O-->>H: git fetch (remote repo)
-    H-->>U: git merge (branch with changes)
-    O-->>H: git pull (remote repo) (branch with changes)
-    O-->>U: git pull (remote repo) (branch with changes)
+  Note over directory,origin: Pulling
+  origin-->>head: git fetch (remote repo)
+  head-->>directory: git merge (branch with changes)
+  origin-->>head: git pull (remote repo) (branch with changes)
+  origin-->>directory: git pull (remote repo) (branch with changes)
 
-    Note over U,O: Committing
-    U-->>I: git add (file name)
-    I-->>H: git commit -m "commit message"
-    U-->>H: git commit -a -m "commit message"
-    H-->>O: git push (destination remote repo) (destination branch)
+  Note over directory,origin: Committing
+  directory-->>index: git add (file name)
+  index-->>head: git commit -m "commit message"
+  directory-->>head: git commit -a -m "commit message"
+  head-->>origin: git push (destination remote repo) (destination branch)
 
-    Note over U,O: Undoing
-    I-->>U: git rm (file name)
-    H-->>I: git reset --soft
-    H-->>U: git reset
+  Note over directory,origin: Undoing
+  index-->>directory: git rm (file name)
+  head-->>index: git reset --soft
+  head-->>directory: git reset
 ```
 
 ## Git commands
@@ -66,6 +66,7 @@ These are common Git commands used in various situations:
   - merge --- Join two or more development histories together
   - rebase --- eapply commits on top of another base tip
   - reset --- Reset current HEAD to the specified state
+  - revert --- Does the opposite of a specific commit
   - switch --- Switch branches
   - tag --- Create, list, delete or verify a tag object signed with GPG
 
