@@ -1,0 +1,54 @@
+
+repos:
+-   repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+    -   id: trailing-whitespace # removes whitespace
+    -   id: end-of-file-fixer   # adds empty stringto end of file
+    -   id: check-yaml  # structures yamls
+    -   id: check-toml  # structures tomls
+    -   id: check-json  # structures jsons
+    -   id: check-xml  # structures xmls
+    -   id: check-added-large-files # stops big commits
+        args: [— maxkb=1000]
+    -   id: check-merge-conflict    # stops unresolved conflicts
+    -   id: check-ast   # checks .py files are valid
+    -   id: debug-statements    # helps debugger statements
+
+-   repo: https://github.com/PyCQA/isort
+    rev: 5.13.2
+    hooks:
+    -   id: isort
+
+-   repo: https://github.com/executablebooks/mdformat
+    rev: 0.7.17
+    hooks:
+    -   id: mdformat
+        additional_dependencies:
+        -   mdformat-gfm
+        -   mdformat-black
+        -   mdformat-config
+        -   mdformat-toc
+
+-   repo: https://github.com/psf/black
+    rev: 24.2.0
+    hooks:
+    -   id: black
+
+-   repo: https://github.com/pre-commit/mirrors-mypy
+    # Mypy is a static type checker for Python
+    rev: v1.8.0
+    hooks:
+    -   id: mypy
+        entry: mypy
+
+-   repo: https://github.com/PyCQA/pylint
+    rev: v3.0.3
+    hooks:
+    -   id: pylint
+        name: pylint
+        entry: pylint
+        language: system
+        types: [python]
+        args: ["-rn", # Only display messages
+          "-sn"] # Don't display the score
