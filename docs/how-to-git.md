@@ -164,7 +164,8 @@ If you need anything specific, git help (command) is used to help with specific 
 ### log:
 
 `git log --pretty=oneline`
+
 - sets up a nice list of remote branch merges
-OR
-`git log --graph --oneline --decorate --all`
+  OR
+  `git log --graph --oneline --decorate --all`
 - sets up a tree graph of remote branch merges
