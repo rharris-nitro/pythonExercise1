@@ -7,8 +7,8 @@ FROM base AS main
     WORKDIR /pythonExercise1
 
     COPY app/ app/
-    
-    CMD ["python", "main.py"]
+
+    CMD ["python", "app/main.py"]
 
 FROM main AS test
 
