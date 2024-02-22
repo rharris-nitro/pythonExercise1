@@ -2,6 +2,7 @@
 
 - [Architecture](#git-commands-architecture)
 - [Intro](#intro)
+- [Installing Git](#installing-git)
 - [Git commands](#git-commands)
 - [Useful parameters for popular commands](#useful-parameters-for-popular-commands)
 
@@ -37,13 +38,18 @@ sequenceDiagram
 ```
 
 ## Intro
-
 Git is a distributed version control system that is widely used for tracking changes in source code during software development. It allows multiple developers to collaborate on a project simultaneously and efficiently manage different versions of their code.
 
 You can find a very fun overview [here](https://rogerdudler.github.io/git-guide/)
 
-## Git commands
+## Installing Git
+For macOS, you will need a package manager installed, e.g. Homebrew.
+After Homebrew is installed, just run this command:
+```bash
+brew install git
+```
 
+## Git commands
 Further instructions can be found in `git help`, or `git help <COMMAND>` to specify what command you want help with.
 (It can be a bit convoluted though).
 
@@ -90,7 +96,6 @@ These are common Git commands used in various situations:
 If you need anything specific, git help (command) is used to help with specific commands.
 
 ## Useful parameters for popular commands
-
 ### clone:
 `git clone <repository>`
 - `<repository>` can be replaced with the remote repo URL if it was created on another machine or the local repo directory that was initalised on your machine.
