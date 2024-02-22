@@ -6,13 +6,12 @@ FROM base AS main
 
     WORKDIR /pythonExercise1
 
-    COPY ./app/main.py .
-
+    COPY app/ app/
+    
     CMD ["python", "main.py"]
 
-FROM base AS test
+FROM main AS test
 
-    COPY app/ app/
     COPY tests/test_main.py .
 
     COPY requirements-test.txt .
