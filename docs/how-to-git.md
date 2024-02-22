@@ -38,18 +38,22 @@ sequenceDiagram
 ```
 
 ## Intro
+
 Git is a distributed version control system that is widely used for tracking changes in source code during software development. It allows multiple developers to collaborate on a project simultaneously and efficiently manage different versions of their code.
 
 You can find a very fun overview [here](https://rogerdudler.github.io/git-guide/)
 
 ## Installing Git
+
 For macOS, you will need a package manager installed, e.g. Homebrew.
 After Homebrew is installed, just run this command:
+
 ```bash
 brew install git
 ```
 
 ## Git commands
+
 Further instructions can be found in `git help`, or `git help <COMMAND>` to specify what command you want help with.
 (It can be a bit convoluted though).
 
@@ -96,43 +100,60 @@ These are common Git commands used in various situations:
 If you need anything specific, git help (command) is used to help with specific commands.
 
 ## Useful parameters for popular commands
+
 ### clone:
+
 `git clone <repository>`
+
 - `<repository>` can be replaced with the remote repo URL if it was created on another machine or the local repo directory that was initalised on your machine.
 
 ### add:
+
 `git add -i <filename>`
+
 - `-i` gives more adding options
 - `<filename>` can be replaced with the filename directory that can be found with `git diff` or `git status`, or a `.` if you want to all the modified files to the staging area.
 
 ### commit:
+
 `git commit -a -m "<msg>"`
+
 - `-a` (optional) is basically combining `git add` and `git commit` into one fell swoop, mainly used for single file commits.
 - `-m "<msg>"` is used to write the commit message in the command itself, just replace `<msg>` with your commit message. If this is not included it brings you to the commit message UI (more difficult).
 
 ### push:
+
 `git push <remote-repo> <destination-branch>`
+
 - `<remote-repo>` is the remote repository (origin) you want to push your changes on you local repo (HEAD) to.
 - `<destination-branch>` is the remote branch you want to push your changes on you local branch to.
 
 ### checkout:
+
 `git checkout -b <branch-name>`
+
 - `-b` (optional) is used to create a new branch in the local repo while switching to it. You will need to state the branch name in this case.
 - `<branch-name>` (optional) is used to specify which branch you'd like to switch to. If this omitted, it will switch to your most recent branch you are no longer on.
 
 ### branch:
+
 `git branch [-d|-D|-a]`
+
 - `-d|-D <branch-to-delete>` deletes or force deletes a specified branch.
 - `-a` shows all of the branches, local and remote.
 
 ### fetch:
+
 `git fetch -v <remote-repo> <remote-branch>`
+
 - `-v` (optional) shows what is happening in the fetch
 - `<remote-repo>` (optional) specifies the remote repo to fetch changes from, default if not specified.
 - `<remote-branch>` (optional) specifies remote branch to pull changes from, all branches if not specified.
 
 ### pull:
+
 `git pull --<options> <remote-repo> <remote-branch>`
+
 - `--<options>` (optional) defines how you want to pull. Replace `--<options>` with one of the following:
   - `-r|--rebase` applies your local commits to current branch as well as fetched changes from remote repo (origin).
   - `--no-rebase` only pulls the changes from remote (origin).
@@ -141,8 +162,9 @@ If you need anything specific, git help (command) is used to help with specific 
 - `<remote-branch>` (optional) specifies remote branch to pull changes from, current branch if not specified.
 
 ### log:
-`git log --pretty=oneline` - sets up a nice list of remote branch merges
+
+`git log --pretty=oneline`
+- sets up a nice list of remote branch merges
 OR
-`git log --graph --oneline --decorate --all` -sets up a tree graph of remote branch merges
-
-
+`git log --graph --oneline --decorate --all`
+- sets up a tree graph of remote branch merges

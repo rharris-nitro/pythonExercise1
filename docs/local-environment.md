@@ -12,9 +12,11 @@
 Setting up the local environment is simple:
 
 - Clone the repository.
+
   ```bash
   git clone https://github.com/rharris-nitro/pythonExercise1.git
   ```
+
   See [How To: Git](how-to-git.md) for more info.
 
 - Setup pre-commit hooks and install hooks for git repo.
@@ -37,6 +39,7 @@ Setting up the local environment is simple:
   ```
 
 - Run a container from the built Docker image:
+
   ```bash
   docker run my-python-app
   ```
@@ -53,6 +56,7 @@ You should see the output of your Python script:
   ```
 
 - Run a container from the built Docker image:
+
   ```bash
   docker run my-python-test
   ```
