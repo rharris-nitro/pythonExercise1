@@ -4,7 +4,7 @@ of integers and prints it.
 """
 
 
-class Main:
+class Data:
     """
     Main class for handling integer arrays.
     """
@@ -14,13 +14,11 @@ class Main:
         Initializes an array of integers with predefined values.
         """
         self.integer_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-        # self.integer_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
 
-    def print_array_to_the_screen(self):
+    def print_array(self):
         """
         Prints the initialized array to the screen.
         """
-        # printing array
         print(self.integer_array)
 
     def get_array(self):
@@ -34,8 +32,8 @@ def main():
     """
     Main function for creating Main instance and printing the array.
     """
-    main_instance = Main()
-    main_instance.print_array_to_the_screen()
+    data = Data()
+    data.print_array()
 
 
 if __name__ == "__main__":
