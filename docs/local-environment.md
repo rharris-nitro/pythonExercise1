@@ -33,12 +33,12 @@ Setting up the local environment is simple:
 - Build the Docker image using the provided Dockerfile:
 
   ```bash
-  docker build -t my-python-app-main --target main .
+  docker build -t my-python-app --target main .
   ```
 
 - Run a container from the built Docker image:
   ```bash
-  docker run my-python-app-main
+  docker run my-python-app
   ```
 
 You should see the output of your Python script:
@@ -49,12 +49,12 @@ You should see the output of your Python script:
 - Build the Docker image using the provided Dockerfile:
 
   ```bash
-  docker build -t my-python-app-test --target test .
+  docker build -t my-python-test --target test .
   ```
 
 - Run a container from the built Docker image:
   ```bash
-  docker run my-python-app-test
+  docker run my-python-test
   ```
 
 You should see the output of your pytest test:
