@@ -1,15 +1,23 @@
 # Local environment<a name="debugging-the-app"></a>
 
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
+
 - [Setup local environment](#setup-local-environment)
-  - [Overview](#overview)
-  - [Docker Build & Run](#build-and-run)
-  - [Run App](#running)
+  - [Clone the repository.](#clone-the-repository)
+  - [Setup pre-commit hooks and install hooks for git repo.](#setup-pre-commit-hooks-and-install-hooks-for-git-repo)
+  - [Installing Python](#installing-python)
+  - [Install Docker](#install-docker)
+- [Build Docker image and run container](#build-docker-image-and-run-container)
+  - [Run App](#run-app)
+  - [Testing App](#testing-app)
+
+<!-- mdformat-toc end -->
 
 ## Setup local environment<a name="setup-local-environment"></a>
 
 Setting up the local environment is simple:
 
-### Clone the repository.
+### Clone the repository.<a name="clone-the-repository"></a>
 
 ```bash
 git clone https://github.com/rharris-nitro/pythonExercise1.git
@@ -17,7 +25,7 @@ git clone https://github.com/rharris-nitro/pythonExercise1.git
 
 See [How To: Git](how-to-git.md) for more info.
 
-### Setup pre-commit hooks and install hooks for git repo.
+### Setup pre-commit hooks and install hooks for git repo.<a name="setup-pre-commit-hooks-and-install-hooks-for-git-repo"></a>
 
 ```bash
 pip install pre-commit
@@ -27,13 +35,13 @@ pre-commit install
 
 See [All About Precommit Hooks](all-about-precommit-hooks.md) for more info.
 
-### [Installing Python](installing-python.md)
+### [Installing Python](installing-python.md)<a name="installing-python"></a>
 
-### [Install Docker](docker-setup.md)
+### [Install Docker](docker-setup.md)<a name="install-docker"></a>
 
-## Build Docker image and run container<a name="build-and-run"></a>
+## Build Docker image and run container<a name="build-docker-image-and-run-container"></a>
 
-### Run App<a name="running"></a>
+### Run App<a name="run-app"></a>
 
 - Build the Docker image using the provided Dockerfile:
 
@@ -50,7 +58,7 @@ See [All About Precommit Hooks](all-about-precommit-hooks.md) for more info.
 You should see the output of your Python script:
 \[1, 2, 3, 4, 5, 6, 7, 8, 9, 10\]
 
-### Testing App<a name="testing"></a>
+### Testing App<a name="testing-app"></a>
 
 - Build the Docker image using the provided Dockerfile:
 

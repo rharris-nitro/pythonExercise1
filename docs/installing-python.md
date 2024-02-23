@@ -1,9 +1,13 @@
 # Installing Python<a name="installing-python"></a>
 
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
+
 - [For Windows](#for-windows)
-- [For macOS](#for-macOS)
-- [For Linux (Ubuntu/Debian)](#for-ubuntu-debian)
-- [For Linux (Fedora)](#for-fedora)
+- [For macOS](#for-macos)
+- [For Linux (Ubuntu/Debian)](#for-linux-ubuntudebian)
+- [For Linux (Fedora)](#for-linux-fedora)
+
+<!-- mdformat-toc end -->
 
 ## For Windows<a name="for-windows"></a>
 
@@ -27,7 +31,7 @@
 
 You should see the installed Python version.
 
-## For macOS<a name="for-macOS"></a>
+## For macOS<a name="for-macos"></a>
 
 1. Open Terminal:
    Open the Terminal application. You can find it using Spotlight by pressing Cmd + Space and typing "Terminal."
@@ -41,7 +45,7 @@ You should see the installed Python version.
 1. Verify Installation:
    Type the following command to check the installed Python version with `python3 --version`
 
-## For Linux (Ubuntu/Debian)<a name="for-ubuntu-debian"></a>
+## For Linux (Ubuntu/Debian)<a name="for-linux-ubuntudebian"></a>
 
 1. Open Terminal:
    Open a terminal window by pressing Ctrl + Alt + T.
@@ -56,7 +60,7 @@ You should see the installed Python version.
    Type the following command to check the installed Python version:
    `python3 --version`
 
-## For Linux (Fedora)<a name="for-fedora"></a>
+## For Linux (Fedora)<a name="for-linux-fedora"></a>
 
 1. Open Terminal:
    Open a terminal window by pressing Ctrl + Alt + T.

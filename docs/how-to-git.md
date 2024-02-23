@@ -1,12 +1,26 @@
 # How to Git
 
-- [Architecture](#git-commands-architecture)
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
+
+- [Git Commands Architecture](#git-commands-architecture)
 - [Intro](#intro)
 - [Installing Git](#installing-git)
 - [Git commands](#git-commands)
 - [Useful parameters for popular commands](#useful-parameters-for-popular-commands)
+  - [clone:](#clone)
+  - [add:](#add)
+  - [commit:](#commit)
+  - [push:](#push)
+  - [checkout:](#checkout)
+  - [branch:](#branch)
+  - [fetch:](#fetch)
+  - [pull:](#pull)
+  - [log:](#log)
+  - [diff:](#diff)
 
-### Git Commands Architecture
+<!-- mdformat-toc end -->
+
+## Git Commands Architecture<a name="git-commands-architecture"></a>
 
 ```mermaid
 sequenceDiagram
@@ -39,13 +53,13 @@ sequenceDiagram
   head-->>directory: git reset
 ```
 
-## Intro
+## Intro<a name="intro"></a>
 
 Git is a distributed version control system that is widely used for tracking changes in source code during software development. It allows multiple developers to collaborate on a project simultaneously and efficiently manage different versions of their code.
 
 You can find a very fun overview [here](https://rogerdudler.github.io/git-guide/)
 
-## Installing Git
+## Installing Git<a name="installing-git"></a>
 
 For macOS, you will need a package manager installed, e.g. Homebrew.
 After Homebrew is installed, just run this command:
@@ -54,7 +68,7 @@ After Homebrew is installed, just run this command:
 brew install git
 ```
 
-## Git commands
+## Git commands<a name="git-commands"></a>
 
 Further instructions can be found in `git help`, or `git help <COMMAND>` to specify what command you want help with.
 (It can be a bit convoluted though).
@@ -101,43 +115,43 @@ These are common Git commands used in various situations:
 
 If you need anything specific, git help (command) is used to help with specific commands.
 
-## Useful parameters for popular commands
+## Useful parameters for popular commands<a name="useful-parameters-for-popular-commands"></a>
 
-### clone:
+### clone:<a name="clone"></a>
 
 `git clone <repository>`
 
 - `<repository>` can be replaced with the remote repo URL if it was created on another machine or the local repo directory that was initalised on your machine.
 
-### add:
+### add:<a name="add"></a>
 
 `git add -i <filename>`
 
 - `-i` gives more adding options
 - `<filename>` can be replaced with the filename directory that can be found with `git diff` or `git status`, or a `.` if you want to all the modified files to the staging area.
 
-### commit:
+### commit:<a name="commit"></a>
 
 `git commit -a -m "<msg>"`
 
 - `-a` (optional) is basically combining `git add` and `git commit` into one fell swoop, mainly used for single file commits.
 - `-m "<msg>"` is used to write the commit message in the command itself, just replace `<msg>` with your commit message. If this is not included it brings you to the commit message UI (more difficult).
 
-### push:
+### push:<a name="push"></a>
 
 `git push <remote-repo> <destination-branch>`
 
 - `<remote-repo>` is the remote repository (origin) you want to push your changes on you local repo (HEAD) to.
 - `<destination-branch>` is the remote branch you want to push your changes on you local branch to.
 
-### checkout:
+### checkout:<a name="checkout"></a>
 
 `git checkout -b <branch-name>`
 
 - `-b` (optional) is used to create a new branch in the local repo while switching to it. You will need to state the branch name in this case.
 - `<branch-name>` (optional) is used to specify which branch you'd like to switch to. If this omitted, it will switch to your most recent branch you are no longer on.
 
-### branch:
+### branch:<a name="branch"></a>
 
 `git branch [-d|-D|-a]`
 
@@ -145,7 +159,7 @@ If you need anything specific, git help (command) is used to help with specific 
 - `-a` shows all of the branches, local and remote.
 - IMPORTANT: make sure to push branch to remote so it is seen --> `git push origin <branch>`
 
-### fetch:
+### fetch:<a name="fetch"></a>
 
 `git fetch -v <remote-repo> <remote-branch>`
 
@@ -153,7 +167,7 @@ If you need anything specific, git help (command) is used to help with specific 
 - `<remote-repo>` (optional) specifies the remote repo to fetch changes from, default if not specified.
 - `<remote-branch>` (optional) specifies remote branch to pull changes from, all branches if not specified.
 
-### pull:
+### pull:<a name="pull"></a>
 
 `git pull --<options> <remote-repo> <remote-branch>`
 
@@ -164,7 +178,7 @@ If you need anything specific, git help (command) is used to help with specific 
 - `<remote-repo>` (optional) specifies the remote repo to fetch changes from, default if not specified.
 - `<remote-branch>` (optional) specifies remote branch to pull changes from, current branch if not specified.
 
-### log:
+### log:<a name="log"></a>
 
 `git log --pretty=oneline`
 
@@ -173,6 +187,6 @@ If you need anything specific, git help (command) is used to help with specific 
   `git log --graph --oneline --decorate --all`
 - sets up a tree graph of remote branch merges
 
-### diff:
+### diff:<a name="diff"></a>
 
 `git diff [<branch-or-commit-1> <branch-or-commit-2>]|[<file-to-examine>]`

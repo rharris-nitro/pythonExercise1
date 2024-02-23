@@ -1,12 +1,16 @@
 # Setting Up Docker<a name="setting-up-docker"></a>
 
-- [Download Docker](#download-docker)
-  - [For Windows](#for-windows)
-  - [For macOS](#for-macOS)
-  - [For Linux](#for-linux)
-- [Verify Docker Installation](#docker-verification)
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
 
-## Download Docker:<a name="download-docker">
+- [Download Docker:](#download-docker)
+  - [For Windows:](#for-windows)
+  - [For macOS:](#for-macos)
+  - [For Linux:](#for-linux)
+- [Verify Docker Installation:](#verify-docker-installation)
+
+<!-- mdformat-toc end -->
+
+## Download Docker:<a name="download-docker"></a>
 
 Visit the official Docker website: [Get Docker](https://docs.docker.com/get-docker/).
 
@@ -19,7 +23,7 @@ Visit the official Docker website: [Get Docker](https://docs.docker.com/get-dock
 1. After installation, Docker Desktop will start automatically.
 1. You should see the Docker icon in the system tray. Docker is now installed and running on your Windows machine.
 
-### For macOS:<a name="for-macOS"></a>
+### For macOS:<a name="for-macos"></a>
 
 1. Click on the "Download for Mac" button.
 1. Follow the on-screen instructions to download the Docker Desktop Installer.
@@ -39,7 +43,7 @@ Visit the official Docker website: [Get Docker](https://docs.docker.com/get-dock
    `sudo systemctl start docker`
 1. Docker is now installed and running on your Linux machine.
 
-## Verify Docker Installation:
+## Verify Docker Installation:<a name="verify-docker-installation"></a>
 
 To verify that Docker is installed correctly, open a terminal (Command Prompt on Windows, Terminal on macOS/Linux) and run the following command:
 `docker --version`
