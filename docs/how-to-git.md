@@ -141,6 +141,7 @@ If you need anything specific, git help (command) is used to help with specific 
 
 - `-d|-D <branch-to-delete>` deletes or force deletes a specified branch.
 - `-a` shows all of the branches, local and remote.
+- IMPORTANT: make sure to push branch to remote so it is seen --> `git push origin <branch>`
 
 ### fetch:
 
@@ -169,3 +170,7 @@ If you need anything specific, git help (command) is used to help with specific 
   OR
   `git log --graph --oneline --decorate --all`
 - sets up a tree graph of remote branch merges
+
+### diff:
+
+`git diff [<branch-or-commit-1> <branch-or-commit-2>]|[<file-to-examine>]`
