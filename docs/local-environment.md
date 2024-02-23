@@ -1,64 +1,88 @@
 # Local environment<a name="debugging-the-app"></a>
 
+<!-- mdformat-toc start --slug=github --maxlevel=6 --minlevel=2 -->
+
 - [Setup local environment](#setup-local-environment)
-  - [Overview](#overview)
-  - [Cloning the Repository](#clone-repo)
-  - [Pre-commit Hooks](#precommit-hooks)
+  - [Clone the repository.](#clone-the-repository)
+  - [Setup pre-commit hooks and install hooks for git repo.](#setup-pre-commit-hooks-and-install-hooks-for-git-repo)
   - [Installing Python](#installing-python)
+  - [Install Docker](#install-docker)
+- [Build Docker image and run container](#build-docker-image-and-run-container)
+  - [Run App](#run-app)
+  - [Testing App](#testing-app)
+
+<!-- mdformat-toc end -->
 
 ## Setup local environment<a name="setup-local-environment"></a>
 
-### Overview<a name="overview"></a>
-
 Setting up the local environment is simple:
 
-- Clone the repository in a specific file path.
-  See also: [How To: Git](how-to-git.md)
-
-- Setup pre-commit hooks.
-  [All About Precommit Hooks](all-about-precommit-hooks.md)
-
-- Install Hook for git repo
+### Clone the repository.<a name="clone-the-repository"></a>
 
 ```bash
+git clone https://github.com/rharris-nitro/pythonExercise1.git
+```
+
+See [How To: Git](how-to-git.md) for more info.
+
+### Setup pre-commit hooks and install hooks for git repo.<a name="setup-pre-commit-hooks-and-install-hooks-for-git-repo"></a>
+
+```bash
+pip install pre-commit
 cd pythonExercise1
 pre-commit install
 ```
 
-- Download and install Python
-  [Installing Python](installing-python.md)
+See [All About Precommit Hooks](all-about-precommit-hooks.md) for more info.
 
-- Build Docker image and run container
-  [Setting Up Docker](docker-setup.md)
+### [Installing Python](installing-python.md)<a name="installing-python"></a>
 
-### Cloning the Repository<a name="clone-repo"></a>
+### [Install Docker](docker-setup.md)<a name="install-docker"></a>
 
-- Head to where you want to put the repo on your machine with:
-  `cd /path/to/your/directory`
+## Build Docker image and run container<a name="build-docker-image-and-run-container"></a>
 
-- Then use the clone command:
-  `git clone https://github.com/rharris-nitro/pythonExercise1.git`
-
-### Pre-commit Hooks<a name="precommit-hooks"></a>
-
-- Head to the current `.pre-commit-config.yaml` in this repo to see what is best to use in my opinion.
-
-### Installing Python<a name="installing-python"></a>
-
-- Download and install Python
-  [Installing Python](installing-python.md)
-
-### Build Docker image and run container
+### Run App<a name="run-app"></a>
 
 - Build the Docker image using the provided Dockerfile:
-  `docker build -t my-python-app .`
-  Replace my-python-app with your desired name for your Docker image
+
+  ```bash
+  docker build -t my-python-app --target main .
+  ```
 
 - Run a container from the built Docker image:
-  `docker run my-python-app`
+
+  ```bash
+  docker run my-python-app
+  ```
 
 You should see the output of your Python script:
 \[1, 2, 3, 4, 5, 6, 7, 8, 9, 10\]
 
-Additional notes:
-If you encounter any issues during the build or run steps, ensure that your Dockerfile and Python script are in the correct locations, and there are no typos in the commands.
+### Testing App<a name="testing-app"></a>
+
+- Build the Docker image using the provided Dockerfile:
+
+  ```bash
+  docker build -t my-python-test --target test .
+  ```
+
+- Run a container from the built Docker image:
+
+  ```bash
+  docker run my-python-test
+  ```
+
+You should see the output of your pytest test:
+
+```bash
+============================= test session starts ==============================
+platform linux -- Python 3.11.8, pytest-7.4.3, pluggy-1.4.0
+rootdir: /
+collected 2 items
+
+test_main.py ..                                                          [100%]
+
+============================== 2 passed in 0.01s ===============================
+```
+
+For more info about how pyTest works, visit [Pytest for Absolute Beginners](https://medium.com/analytics-vidhya/pytest-for-absolute-beginners-4a166324b350)
