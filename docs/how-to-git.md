@@ -15,24 +15,26 @@ sequenceDiagram
   participant head as Local Repo (Head)
   participant origin as Remote Repo (Origin)
 
-  Note over directory,origin: Cloning
-  origin-->>head: git fetch (remote repo)
-  head-->>directory: git checkout
+  Note over directory,origin: git clone [remote repo url]
+  origin-->>head: (stage 1) fetch
+  head-->>directory: (stage 2) checkout
 
-  Note over directory,origin: Pulling
-  origin-->>head: git fetch (remote repo)
-  head-->>directory: git merge (branch with changes)
-  origin-->>head: git pull (remote repo) (branch with changes)
-  origin-->>directory: git pull (remote repo) (branch with changes)
+  Note over directory,origin: Pulling using `git fetch` and `git merge`
+  origin-->>head: git fetch [remote repo]
+  head-->>directory: git merge [branch with changes]
+
+  Note over directory,origin: git pull [remote repo] [branch with changes]
+  origin-->>head:  (stage 1) fetch
+  head-->>directory: (stage 2) merge
 
   Note over directory,origin: Committing
-  directory-->>index: git add (file name)
+  directory-->>index: git add [file name]
+  index-->>directory: git rm [file name]
   index-->>head: git commit -m "commit message"
   directory-->>head: git commit -a -m "commit message"
-  head-->>origin: git push (destination remote repo) (destination branch)
+  head-->>origin: git push [destination remote repo] [destination branch]
 
   Note over directory,origin: Undoing
-  index-->>directory: git rm (file name)
   head-->>index: git reset --soft
   head-->>directory: git reset
 ```
