@@ -7,11 +7,9 @@
 
 ## Setup local environment<a name="setup-local-environment"></a>
 
-### Overview<a name="overview"></a>
-
 Setting up the local environment is simple:
 
-- Clone the repository.
+### Clone the repository.
 
 ```bash
 git clone https://github.com/rharris-nitro/pythonExercise1.git
@@ -19,7 +17,7 @@ git clone https://github.com/rharris-nitro/pythonExercise1.git
 
 See [How To: Git](how-to-git.md) for more info.
 
-- Setup pre-commit hooks and install hooks for git repo.
+### Setup pre-commit hooks and install hooks for git repo.
 
 ```bash
 pip install pre-commit
@@ -29,9 +27,9 @@ pre-commit install
 
 See [All About Precommit Hooks](all-about-precommit-hooks.md) for more info.
 
-- [Installing Python](installing-python.md)
+### [Installing Python](installing-python.md)
 
-- [Install Docker](docker-setup.md)
+### [Install Docker](docker-setup.md)
 
 ## Build Docker image and run container<a name="build-and-run"></a>
 
