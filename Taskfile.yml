@@ -1,0 +1,23 @@
+version: '3'
+
+tasks:
+  hello:
+    cmds:
+      - echo 'Hello World from Task!'
+    silent: true
+
+  build-app:
+    cmds:
+      - docker build -t my-python-app --target main .
+
+  run-app:
+    cmds:
+      - docker run my-python-app
+
+  build-test:
+    cmds:
+      - docker build -t my-python-test --target test .
+
+  run-test:
+    cmds:
+      - docker run my-python-test
