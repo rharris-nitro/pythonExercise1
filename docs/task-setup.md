@@ -7,6 +7,7 @@ brew install go-task/tap/go-task
 ```
 
 After installed, check it is working by creating a `Taskfile.yml`.
+
 ## Example:
 
 ```bash
