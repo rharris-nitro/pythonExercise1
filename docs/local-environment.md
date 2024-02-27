@@ -10,6 +10,7 @@
 - [Build Docker image and run container](#build-docker-image-and-run-container)
   - [Run App](#run-app)
   - [Testing App](#testing-app)
+- [Building and Running using task](#building-and-running-using-task)
 
 <!-- mdformat-toc end -->
 
@@ -86,3 +87,12 @@ test_main.py ..                                                          [100%]
 ```
 
 For more info about how pyTest works, visit [Pytest for Absolute Beginners](https://medium.com/analytics-vidhya/pytest-for-absolute-beginners-4a166324b350)
+
+## Building and Running using task<a name="building-and-running-using-task"></a>
+
+Using my Taskfile that is provided in the repo:
+
+- `task build-app` builds the main app
+- `task run-app` runs the main app
+- `task build-test` builds the app test
+- `task run-test` runs the app test
