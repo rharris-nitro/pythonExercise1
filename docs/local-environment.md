@@ -7,8 +7,7 @@
   - [Setup pre-commit hooks and install hooks for git repo.](#setup-pre-commit-hooks-and-install-hooks-for-git-repo)
   - [Installing Python](#installing-python)
   - [Install Docker](#install-docker)
-  - [Install Task](#install-task)
-- [Build Docker image and run container using Task](#build-docker-image-and-run-container-using-task)
+- [Build Docker image and run container](#build-docker-image-and-run-container)
   - [Run App](#run-app)
   - [Testing App](#testing-app)
 
@@ -40,30 +39,20 @@ See [All About Precommit Hooks](all-about-precommit-hooks.md) for more info.
 
 ### [Install Docker](docker-setup.md)<a name="install-docker"></a>
 
-### Install Task<a name="install-task"></a>
-
-If you are using Homebrew, enter this into the command line:
-
-```bash
-brew install go-task/tap/go-task
-```
-
-For more info, visit the [Taskfile website](https://taskfile.dev/)
-
-## Build Docker image and run container using Task<a name="build-docker-image-and-run-container-using-task"></a>
+## Build Docker image and run container<a name="build-docker-image-and-run-container"></a>
 
 ### Run App<a name="run-app"></a>
 
-- Build the Docker image:
+- Build the Docker image using the provided Dockerfile:
 
   ```bash
-  task build-app
+  docker build -t my-python-app --target main .
   ```
 
 - Run a container from the built Docker image:
 
   ```bash
-  task run-app
+  docker run my-python-app
   ```
 
 You should see the output of your Python script:
@@ -71,16 +60,16 @@ You should see the output of your Python script:
 
 ### Testing App<a name="testing-app"></a>
 
-- Build the Docker image:
+- Build the Docker image using the provided Dockerfile:
 
   ```bash
-  task build-test
+  docker build -t my-python-test --target test .
   ```
 
 - Run a container from the built Docker image:
 
   ```bash
-  task run-test
+  docker run my-python-test
   ```
 
 You should see the output of your pytest test:
