@@ -1,0 +1,22 @@
+version: "3"
+
+env:
+  MAIN_CONTAINER: my-python-app
+  TEST_CONTAINER: my-python-test
+
+tasks:
+  build-app:
+    cmds:
+      - docker build -t $MAIN_CONTAINER --target main .
+
+  run-app:
+    cmds:
+      - docker run $MAIN_CONTAINER
+
+  build-test:
+    cmds:
+      - docker build -t $TEST_CONTAINER --target test .
+
+  run-test:
+    cmds:
+      - docker run $TEST_CONTAINER
