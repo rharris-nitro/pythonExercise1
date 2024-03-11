@@ -70,7 +70,7 @@ brew install git
 
 ## Git commands<a name="git-commands"></a>
 
-Further instructions can be found in `git help`, or `git help <COMMAND>` to specify what command you want help with.
+Further instructions can be found in `git help`, or `git help [COMMAND]` to specify what command you want help with.
 (It can be a bit convoluted though).
 
 These are common Git commands used in various situations:
@@ -119,74 +119,77 @@ If you need anything specific, git help (command) is used to help with specific 
 
 ### clone:<a name="clone"></a>
 
-`git clone <repository>`
+`git clone [repository]`
 
-- `<repository>` can be replaced with the remote repo URL if it was created on another machine or the local repo directory that was initalised on your machine.
+- `[repository]` can be replaced with the remote repo URL if it was created on another machine or the local repo directory that was initalised on your machine.
 
 ### add:<a name="add"></a>
 
-`git add -i <filename>`
+`git add -i [filename]`
 
 - `-i` gives more adding options
-- `<filename>` can be replaced with the filename directory that can be found with `git diff` or `git status`, or a `.` if you want to all the modified files to the staging area.
+- `[filename]` can be replaced with the filename directory that can be found with `git diff` or `git status`, or a `.` if you want to all the modified files to the staging area.
 
 ### commit:<a name="commit"></a>
 
-`git commit -a -m "<msg>"`
+`git commit -a -m "[msg]"`
 
 - `-a` (optional) is basically combining `git add` and `git commit` into one fell swoop, mainly used for single file commits.
-- `-m "<msg>"` is used to write the commit message in the command itself, just replace `<msg>` with your commit message. If this is not included it brings you to the commit message UI (more difficult).
+- `-m "[msg]"` is used to write the commit message in the command itself, just replace `[msg]` with your commit message. If this is not included it brings you to the commit message UI (more difficult).
 
 ### push:<a name="push"></a>
 
-`git push <remote-repo> <destination-branch>`
+`git push [remote-repo] [destination-branch]`
 
-- `<remote-repo>` is the remote repository (origin) you want to push your changes on you local repo (HEAD) to.
-- `<destination-branch>` is the remote branch you want to push your changes on you local branch to.
+- `[remote-repo]` is the remote repository (origin) you want to push your changes on you local repo (HEAD) to.
+- `[destination-branch]` is the remote branch you want to push your changes on you local branch to.
 
 ### checkout:<a name="checkout"></a>
 
-`git checkout -b <branch-name>`
+`git checkout -b [branch-name]`
 
 - `-b` (optional) is used to create a new branch in the local repo while switching to it. You will need to state the branch name in this case.
-- `<branch-name>` (optional) is used to specify which branch you'd like to switch to. If this omitted, it will switch to your most recent branch you are no longer on.
+- `[branch-name]` (optional) is used to specify which branch you'd like to switch to. If this omitted, it will switch to your most recent branch you are no longer on.
 
 ### branch:<a name="branch"></a>
 
 `git branch [-d|-D|-a]`
 
-- `-d|-D <branch-to-delete>` deletes or force deletes a specified branch.
+- `-d|-D [branch-to-delete]` deletes or force deletes a specified branch.
 - `-a` shows all of the branches, local and remote.
-- IMPORTANT: make sure to push branch to remote so it is seen --> `git push origin <branch>`
+- IMPORTANT: make sure to push branch to remote so it is seen --> `git push origin [branch]`
 
 ### fetch:<a name="fetch"></a>
 
-`git fetch -v <remote-repo> <remote-branch>`
+`git fetch -v [remote-repo] [remote-branch]`
 
 - `-v` (optional) shows what is happening in the fetch
-- `<remote-repo>` (optional) specifies the remote repo to fetch changes from, default if not specified.
-- `<remote-branch>` (optional) specifies remote branch to pull changes from, all branches if not specified.
+- `[remote-repo]` (optional) specifies the remote repo to fetch changes from, default if not specified.
+- `[remote-branch]` (optional) specifies remote branch to pull changes from, all branches if not specified.
 
 ### pull:<a name="pull"></a>
 
-`git pull --<options> <remote-repo> <remote-branch>`
+`git pull --[options] [remote-repo] [remote-branch]`
 
-- `--<options>` (optional) defines how you want to pull. Replace `--<options>` with one of the following:
+- `--[options]` (optional) defines how you want to pull. Replace `--[options]` with one of the following:
   - `-r|--rebase` applies your local commits to current branch as well as fetched changes from remote repo (origin).
   - `--no-rebase` only pulls the changes from remote (origin).
   - `--ff-only` pulls only if a fast-forward (merging where at least one branch no new commits) can be done.
-- `<remote-repo>` (optional) specifies the remote repo to fetch changes from, default if not specified.
-- `<remote-branch>` (optional) specifies remote branch to pull changes from, current branch if not specified.
+- `[remote-repo]` (optional) specifies the remote repo to fetch changes from, default if not specified.
+- `[remote-branch]` (optional) specifies remote branch to pull changes from, current branch if not specified.
 
 ### log:<a name="log"></a>
 
 `git log --pretty=oneline`
 
 - sets up a nice list of remote branch merges
-  OR
-  `git log --graph --oneline --decorate --all`
+
+OR
+
+`git log --graph --oneline --decorate --all`
+
 - sets up a tree graph of remote branch merges
 
 ### diff:<a name="diff"></a>
 
-`git diff [<branch-or-commit-1> <branch-or-commit-2>]|[<file-to-examine>]`
+`git diff ([branch-or-commit-1] [branch-or-commit-2])|([file-to-examine])`
