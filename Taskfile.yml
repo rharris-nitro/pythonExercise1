@@ -1,22 +1,20 @@
 version: "3"
 
-env:
-  MAIN_CONTAINER: my-python-app
-  TEST_CONTAINER: my-python-test
-
 tasks:
-  build-app:
+  build:
     cmds:
-      - docker build -t $MAIN_CONTAINER --target main .
+      - docker-compose -f docker-compose.yml build
 
-  run-app:
+  up:
+    env:
+      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}/tmp/debugpy --listen 127.0.0.1:5673 --wait-for-client main.py{{else}}{{end}}'
     cmds:
-      - docker run $MAIN_CONTAINER
+      - docker-compose -f docker-compose.yml up
 
   build-test:
     cmds:
-      - docker build -t $TEST_CONTAINER --target test .
+      - docker-compose -f docker-compose.test.yml build
 
-  run-test:
+  up-test:
     cmds:
-      - docker run $TEST_CONTAINER
+      - docker-compose -f docker-compose.test.yml up
