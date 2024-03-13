@@ -1,7 +1,6 @@
 */__pycache__/
 .DS_Store
 
-
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
