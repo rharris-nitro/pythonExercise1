@@ -1,0 +1,11 @@
+version: '3.4'
+
+services:
+  my-python-app:
+    build:
+      context: .
+      target: main-dev
+    image: my-python-app
+    ports:
+      - "5673:5673"
+    command: ${BASE_COMMAND:- main.py}
