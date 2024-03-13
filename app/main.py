@@ -3,8 +3,6 @@ Module main: This module contains the main function that initializes an array
 of integers and prints it.
 """
 
-import debugpy
-
 
 class Data:
     """
@@ -39,6 +37,4 @@ def main():
 
 
 if __name__ == "__main__":
-    debugpy.listen(("0.0.0.0", 56789))
-    debugpy.wait_for_client()
     main()
