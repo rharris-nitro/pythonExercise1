@@ -8,4 +8,4 @@ services:
     image: my-python-test
     ports:
     - "5673:5673"
-    command: ${BASE_COMMAND:- main.py}
+    command: ${BASE_COMMAND:- test_main.py}
