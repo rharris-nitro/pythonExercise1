@@ -57,13 +57,13 @@ For more info, visit the [Taskfile website](https://taskfile.dev/)
 - Build the Docker image:
 
   ```bash
-  task build-app
+  task build
   ```
 
 - Run a container from the built Docker image:
 
   ```bash
-  task run-app
+  task up
   ```
 
 You should see the output of your Python script:
