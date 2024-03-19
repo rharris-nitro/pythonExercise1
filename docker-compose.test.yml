@@ -6,3 +6,6 @@ services:
       context: .
       target: test
     image: my-python-test
+    ports:
+    - "5673:5673"
+    command: ${BASE_COMMAND:- main.py}
