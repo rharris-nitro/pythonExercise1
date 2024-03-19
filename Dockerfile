@@ -9,7 +9,7 @@ WORKDIR /app
 COPY app/ .
 
 ENTRYPOINT ["python"]
-CMD ["app/main.py"]
+CMD ["main.py"]
 
 
 FROM main AS main-dev
