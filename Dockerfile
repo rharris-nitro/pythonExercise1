@@ -4,17 +4,24 @@ FROM python:3.11 AS base
 
 FROM base AS main
 
-    WORKDIR /pythonExercise1
+WORKDIR /app
 
-    COPY app/ app/
+COPY app/ .
 
-    CMD ["python", "app/main.py"]
+ENTRYPOINT ["python"]
+CMD ["main.py"]
+
+
+FROM main AS main-dev
+RUN pip3 install --no-cache-dir debugpy==1.8.0 -t /tmp
+
 
 FROM main AS test
 
-    COPY tests/test_main.py .
+COPY tests/test_main.py .
 
-    COPY requirements-test.txt .
-    RUN pip install -r requirements-test.txt
+COPY requirements.test.txt .
+RUN pip install -r requirements.test.txt
 
-    CMD ["pytest", "test_main.py"]
+ENTRYPOINT ["pytest"]
+CMD ["test_main.py"]
