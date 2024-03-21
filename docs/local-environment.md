@@ -11,6 +11,8 @@
 - [Build Docker image and run container using Task](#build-docker-image-and-run-container-using-task)
   - [Run App](#run-app)
   - [Testing App](#testing-app)
+- [Debugging](#debugging)
+  - [Debugging main](#debugging-main)
 
 <!-- mdformat-toc end -->
 
@@ -54,13 +56,7 @@ For more info, visit the [Taskfile website](https://taskfile.dev/)
 
 ### Run App<a name="run-app"></a>
 
-- Build the Docker image:
-
-  ```bash
-  task build
-  ```
-
-- Run a container from the built Docker image:
+- Build and run a container using Task:
 
   ```bash
   task up
@@ -71,16 +67,10 @@ You should see the output of your Python script:
 
 ### Testing App<a name="testing-app"></a>
 
-- Build the Docker image:
+- Build and run a container using Task:
 
   ```bash
-  task build-test
-  ```
-
-- Run a container from the built Docker image:
-
-  ```bash
-  task run-test
+  task up-test
   ```
 
 You should see the output of your pytest test:
@@ -97,3 +87,15 @@ test_main.py ..                                                          [100%]
 ```
 
 For more info about how pyTest works, visit [Pytest for Absolute Beginners](https://medium.com/analytics-vidhya/pytest-for-absolute-beginners-4a166324b350)
+
+## Debugging<a name="debugging"></a>
+
+### Debugging main<a name="debugging-main"></a>
+
+To debug the main image in VSCode, run the image using task and set USE_DEBUG to true:
+
+```bash
+task up USE_DEBUG=true
+```
+
+The same can be done for the test image.
