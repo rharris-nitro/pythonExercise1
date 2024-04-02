@@ -98,4 +98,6 @@ To debug the main image in VSCode, run the image using task and set USE_DEBUG to
 task up USE_DEBUG=true
 ```
 
-The same can be done for the test image.
+The same can be done for the test image
+
+See \[debugging.md\] for more info
