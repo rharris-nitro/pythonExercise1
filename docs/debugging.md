@@ -27,6 +27,7 @@ The application should be configured to wait for the debugger to attach before i
 ## VSCode Configuration:
 
 In VSCode, you need to configure a launch configuration that tells VSCode how to connect to the debugger inside the Docker container. This involves specifying the type of debugger (e.g., Python), the host (usually localhost or 127.0.0.1), and the port number that matches the one configured in the Docker container.
+See \[.vscode/launch.json\]
 
 ## Starting the Debugger:
 

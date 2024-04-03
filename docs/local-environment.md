@@ -53,7 +53,8 @@ For more info, visit the [Taskfile website](https://taskfile.dev/)
 
 ### Install VSCode<a name="install-vscode"></a>
 
-You should open the folder in VSCode in the directory where the repo is cloned.
+Install VSCode from [here](https://code.visualstudio.com/).
+After setting up, you should open the folder in VSCode in the directory where the repo is cloned.
 
 ## Build Docker image and run container using Task<a name="build-docker-image-and-run-container-using-task"></a>
 
