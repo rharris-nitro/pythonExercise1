@@ -106,4 +106,4 @@ The same can be done for the test image
 
 Go to the Run and Debug section in VSCode, make sure the Debugger is on Remote Attach, and press the green play button.
 
-See \[debugging.md\] for more info
+See \<debugging.md> for more info

@@ -4,7 +4,7 @@ services:
   my-python-app:
     build:
       context: .
-      target: main-dev
+      target: dev
     image: my-python-app
     ports:
       - "5673:5673"
