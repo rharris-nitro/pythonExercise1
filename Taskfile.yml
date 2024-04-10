@@ -7,7 +7,7 @@ tasks:
 
   up:
     env:
-      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}/tmp/debugpy --listen 0.0.0.0:5673 --wait-for-client main.py{{else}}{{end}}'
+      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}/tmp/debugpy --listen 0.0.0.0:5673 --wait-for-client app/main.py{{else}}{{end}}'
     cmds:
       - docker-compose -f docker-compose.yml up
 
@@ -17,7 +17,7 @@ tasks:
 
   up-test:
     env:
-      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}/tmp/debugpy --listen 0.0.0.0:5673 --wait-for-client test_main.py{{else}}{{end}}'
+      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}/tmp/debugpy --listen 0.0.0.0:5673 --wait-for-client tests/test_main.py{{else}}{{end}}'
     cmds:
       - docker-compose -f docker-compose.test.yml up
 

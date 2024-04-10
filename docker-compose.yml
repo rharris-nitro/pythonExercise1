@@ -8,4 +8,7 @@ services:
     image: my-python-app
     ports:
       - "5673:5673"
-    command: ${BASE_COMMAND:- main.py}
+    volumes:
+      - ./app:/pythonExercise1/app
+      - ./tests:/pythonExercise1/tests
+    command: ${BASE_COMMAND:- app/main.py}

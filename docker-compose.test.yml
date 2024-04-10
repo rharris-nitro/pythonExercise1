@@ -4,8 +4,11 @@ services:
   my-python-test:
     build:
       context: .
-      target: test
+      target: dev
     image: my-python-test
     ports:
     - "5673:5673"
-    command: ${BASE_COMMAND:- test_main.py}
+    volumes:
+      - ./app:/pythonExercise1/app
+      - ./tests:/pythonExercise1/tests
+    command: ${BASE_COMMAND:- pytest}

@@ -6,7 +6,7 @@ FROM base AS main
 
     WORKDIR /pythonExercise1
 
-    COPY ./app /app
+    COPY ./app /pythonExercise1/app
 
     ENTRYPOINT ["python"]
     CMD ["main.py"]
@@ -14,10 +14,8 @@ FROM base AS main
 
 FROM main AS dev
 
-    COPY ./tests /tests
+    COPY ./tests /pythonExercise1/tests
     COPY requirements.test.txt .
 
-    RUN pip install -r requirements.test.txt \
+    RUN pip install -r requirements.test.txt && \
         pip install debugpy==1.8.0 -t /tmp
-
-    ENTRYPOINT ["pytest"]
