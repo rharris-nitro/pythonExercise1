@@ -9,11 +9,11 @@
       "pathMappings": [
         {
           "localRoot": "${workspaceFolder}/app",
-          "remoteRoot": "/pythonexercise1/app"
+          "remoteRoot": "/pythonExercise1/app"
         },
         {
           "localRoot": "${workspaceFolder}/tests",
-          "remoteRoot": "/pythonexercise1/tests"
+          "remoteRoot": "/pythonExercise1/tests"
         }
       ]
     }
