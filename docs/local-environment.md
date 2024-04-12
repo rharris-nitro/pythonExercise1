@@ -8,15 +8,16 @@
   - [Installing Python](#installing-python)
   - [Install Docker](#install-docker)
   - [Install Task](#install-task)
+  - [Install VSCode](#install-vscode)
 - [Build Docker image and run container using Task](#build-docker-image-and-run-container-using-task)
   - [Run App](#run-app)
   - [Testing App](#testing-app)
+- [Debugging](#debugging)
+  - [Debugging main](#debugging-main)
 
 <!-- mdformat-toc end -->
 
 ## Setup local environment<a name="setup-local-environment"></a>
-
-Setting up the local environment is simple:
 
 ### Clone the repository.<a name="clone-the-repository"></a>
 
@@ -50,20 +51,19 @@ brew install go-task/tap/go-task
 
 For more info, visit the [Taskfile website](https://taskfile.dev/)
 
+### Install VSCode<a name="install-vscode"></a>
+
+Install VSCode from [here](https://code.visualstudio.com/).
+After setting up, you should open the folder in VSCode in the directory where the repo is cloned.
+
 ## Build Docker image and run container using Task<a name="build-docker-image-and-run-container-using-task"></a>
 
 ### Run App<a name="run-app"></a>
 
-- Build the Docker image:
+- Build and run a container using Task:
 
   ```bash
-  task build-app
-  ```
-
-- Run a container from the built Docker image:
-
-  ```bash
-  task run-app
+  task up
   ```
 
 You should see the output of your Python script:
@@ -71,16 +71,10 @@ You should see the output of your Python script:
 
 ### Testing App<a name="testing-app"></a>
 
-- Build the Docker image:
+- Build and run a container using Task:
 
   ```bash
-  task build-test
-  ```
-
-- Run a container from the built Docker image:
-
-  ```bash
-  task run-test
+  task up-test
   ```
 
 You should see the output of your pytest test:
@@ -97,3 +91,19 @@ test_main.py ..                                                          [100%]
 ```
 
 For more info about how pyTest works, visit [Pytest for Absolute Beginners](https://medium.com/analytics-vidhya/pytest-for-absolute-beginners-4a166324b350)
+
+## Debugging<a name="debugging"></a>
+
+### Debugging main<a name="debugging-main"></a>
+
+To debug the main image in VSCode, run the image using task and set USE_DEBUG to true:
+
+```bash
+task up USE_DEBUGPY=true
+```
+
+The same can be done for the test image
+
+Go to the Run and Debug section in VSCode, make sure the Debugger is on Remote Attach, and press the green play button.
+
+See \<debugging.md> for more info

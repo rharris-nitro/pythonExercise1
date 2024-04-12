@@ -1,0 +1,21 @@
+{
+  "configurations": [
+    {
+      "name": "Python Debugger: Remote Attach",
+      "type": "python",
+      "request": "attach",
+      "host": "localhost",
+      "port": 5673,
+      "pathMappings": [
+        {
+          "localRoot": "${workspaceFolder}/app",
+          "remoteRoot": "/pythonExercise1/app"
+        },
+        {
+          "localRoot": "${workspaceFolder}/tests",
+          "remoteRoot": "/pythonExercise1/tests"
+        }
+      ]
+    }
+  ]
+}

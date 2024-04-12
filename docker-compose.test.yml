@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  my-python-test:
+    build:
+      context: .
+      target: dev
+    image: my-python-test
+    ports:
+    - "5673:5673"
+    volumes:
+      - ./app:/pythonExercise1/app
+      - ./tests:/pythonExercise1/tests
+    command: ${BASE_COMMAND:- -m pytest}
