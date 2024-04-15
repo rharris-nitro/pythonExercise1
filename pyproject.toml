@@ -1,11 +1,10 @@
 [tool.coverage.run]
 omit = [
-    ## omit anything in a .local directory anywhere
-    #"*/.local/*",
-    ## omit everything in /usr
-    #"/usr/*",
-    ## omit this single file
-    #"utils/tirefire.py",
+    "/usr/local/*",
+    ]
 
-    "/usr/local/lib/python3.11/site-packages/*",
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if __name__ == '__main__':",
     ]
