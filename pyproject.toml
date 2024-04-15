@@ -1,0 +1,11 @@
+[tool.coverage.run]
+omit = [
+    ## omit anything in a .local directory anywhere
+    #"*/.local/*",
+    ## omit everything in /usr
+    #"/usr/*",
+    ## omit this single file
+    #"utils/tirefire.py",
+
+    "/usr/local/lib/python3.11/site-packages/*",
+    ]
