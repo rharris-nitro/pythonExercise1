@@ -60,6 +60,3 @@ For a more detailed report, you can use coverage html to generate an HTML report
 ## Integrating Coverage Testing into Your Workflow
 
 To ensure that coverage testing is an integral part of your development process, consider integrating it into your continuous integration (CI) pipeline. This way, coverage reports are automatically generated and reviewed whenever changes are pushed to your repository.
-
-### Example
-In this project, coverage testing is used to ensure that the Data class in app/data.py is thoroughly tested. The test cases in tests/test_main.py are designed to cover all methods in the Data class, including print_array and get_array. By running coverage tests, you can quickly identify any untested parts of your code and improve the overall quality of your application.
