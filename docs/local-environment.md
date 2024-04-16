@@ -14,6 +14,7 @@
   - [Testing App](#testing-app)
 - [Debugging](#debugging)
   - [Debugging main](#debugging-main)
+- [Coverage Testing](#coverage-testing)
 
 <!-- mdformat-toc end -->
 
@@ -107,3 +108,7 @@ The same can be done for the test image
 Go to the Run and Debug section in VSCode, make sure the Debugger is on Remote Attach, and press the green play button.
 
 See \<debugging.md> for more info
+
+## Coverage Testing<a name="coverage-testing"></a>
+
+For more info on coverage.py, go [here](https://coverage.readthedocs.io/en/7.4.4/index.html)
