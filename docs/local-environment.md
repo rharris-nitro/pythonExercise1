@@ -111,4 +111,19 @@ See \<debugging.md> for more info
 
 ## Coverage Testing<a name="coverage-testing"></a>
 
-For more info on coverage.py, go [here](https://coverage.readthedocs.io/en/7.4.4/index.html)
+To get coverage results in CLI:
+
+```bash
+task coverage-report
+```
+
+To get coverage results in a nice local HTML:
+
+```bash
+task coverage-html
+```
+
+html file will appear in root folder
+Open `index.html` in your browser
+
+For more info on coverage.py, go to \<coverage-testing.md>

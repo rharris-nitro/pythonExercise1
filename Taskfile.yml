@@ -1,25 +1,50 @@
 version: "3"
 
 tasks:
+  # ------------------------------------------------------------------------------------------------
+  # -Build------------------------------------------------------------------------------------------
+  # ------------------------------------------------------------------------------------------------
+
   build:
-    cmds:
-      - docker-compose -f docker-compose.yml build
+    cmd: docker-compose -f docker-compose.yml build
+
+  build-test:
+    cmd: docker-compose -f docker-compose.test.yml build
+
+  build-all:
+    deps: [build, build-test]
+
+  # ------------------------------------------------------------------------------------------------
+  # -Up---------------------------------------------------------------------------------------------
+  # ------------------------------------------------------------------------------------------------
 
   up:
     env:
       BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}/tmp/debugpy --listen 0.0.0.0:5673 --wait-for-client app/main.py{{else}}{{end}}'
-    cmds:
-      - docker-compose -f docker-compose.yml up
-
-  build-test:
-    cmds:
-      - docker-compose -f docker-compose.test.yml build
+    cmd: docker-compose -f docker-compose.yml up
 
   up-test:
     env:
       BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}/tmp/debugpy --listen 0.0.0.0:5673 --wait-for-client tests/test_main.py{{else}}{{end}}'
-    cmds:
-      - docker-compose -f docker-compose.test.yml up
+    cmd: docker-compose -f docker-compose.test.yml up
 
-  build-all:
-    deps: [build, build-test]
+  # ------------------------------------------------------------------------------------------------
+  # -Coverage---------------------------------------------------------------------------------------
+  # ------------------------------------------------------------------------------------------------
+
+  coverage-report:
+    cmds:
+      - coverage run -m pytest
+      - coverage report
+
+  coverage-html:
+    cmds:
+      - coverage run -m pytest
+      - coverage html
+
+  # ------------------------------------------------------------------------------------------------
+  # -Pre-Commit-------------------------------------------------------------------------------------
+  # ------------------------------------------------------------------------------------------------
+
+  pre-commit:
+    cmd: pre-commit run --all-files

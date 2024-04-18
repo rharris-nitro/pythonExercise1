@@ -1,62 +1,33 @@
-# Coverage Testing
+# Configuring coverage.py for Python Projects
 
-Coverage testing is a method used to measure the extent to which the source code of a program is executed when a particular test suite runs. A program with high coverage has been more thoroughly tested and has a lower chance of containing software bugs than a program with low coverage. See more
+Coverage.py is a powerful tool for measuring code coverage of Python programs. It helps developers understand which parts of their code are executed during testing and which parts are not. This guide will walk you through the process of configuring `coverage.py` for your project.
 
-## Setting Up Coverage Testing
+## Creating a Configuration File
 
-To set up coverage testing in your project, follow these steps:
+`coverage.py` can be configured using a `.coveragerc` file or a `pyproject.toml` file. For this guide, we'll focus on the `.coveragerc` file.
 
-### Install Coverage Tool:
+1. **Create a `.coveragerc` file**: In the root directory of your project, create a new file named `.coveragerc`.
 
-First, you need to install a coverage tool. For Python projects, coverage.py is a popular choice. You can install it using pip:
-
-```bash
-   pip install coverage
-```
-
-### Configure Coverage:
-
-Create a pyproject.toml file in your project's root directory to configure coverage settings. This file allows you to specify which files should be included or excluded from coverage reports, among other settings. Here's a basic example:
+1. **Edit the `.coveragerc` file**: Open the `.coveragerc` file in your text editor and add your configuration settings. Here's an example configuration:
 
 ```bash
-    [tool.coverage.run]
-    omit = [
-        "/usr/local/*",
-        ]
+[run]
+omit = "/usr/local/*", "tests/*"
 
-    [tool.coverage.report]
-    exclude_lines = [
-        "pragma: no cover",
-        "if __name__ == '__main__':",
-        ]
+[report]
+exclude_lines = "pragma: no cover", "if name == 'main':"
 ```
 
-This configuration tells coverage to include all files in the app directory except those in tests and migrations. It also excludes lines marked with `# pragma: no cover` and the `if __name__ == "__main__":` block.
+### Understanding the Configuration
 
-### Run Coverage:
+- **\[run\]**: This section contains settings that affect the execution of your program under coverage.py.
 
-To run coverage tests, use the coverage run command followed by the command to run your tests. For example, if you're using pytest, you would run:
+- `omit`: Specifies files or directories to omit from coverage collection. This is useful for excluding third-party libraries or test code.
 
-```bash
-   coverage run -m pytest
-```
+- **\[report\]**: This section contains settings that affect the generation of coverage reports.
 
-This command runs your tests under coverage and collects data on which parts of your code were executed.
+- `exclude_lines`: Specifies lines to exclude from coverage reports. This is useful for excluding lines that are not relevant to coverage, such as lines marked with `# pragma: no cover` or the `if __name__ == '__main__':` block.
 
-### Generate Report:
+## More Info:
 
-After running your tests, generate a coverage report using the coverage report command. This will display a report in the terminal showing the percentage of code covered by tests.
-
-```bash
-   coverage report
-```
-
-For a more detailed report, you can use coverage html to generate an HTML report, which you can view in your web browser.
-
-```bash
-   coverage html
-```
-
-## Integrating Coverage Testing into Your Workflow
-
-To ensure that coverage testing is an integral part of your development process, consider integrating it into your continuous integration (CI) pipeline. This way, coverage reports are automatically generated and reviewed whenever changes are pushed to your repository.
+Full documentation is [here](https://coverage.readthedocs.io/en/7.4.4)
