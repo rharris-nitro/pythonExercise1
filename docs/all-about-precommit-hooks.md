@@ -14,12 +14,6 @@ OR
 If you would like to run the pre-commits before committing you can enter:
 
 ```bash
-pre-commit run --all-files
-```
-
-OR
-
-```bash
 task pre-commit
 ```
 

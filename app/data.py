@@ -17,7 +17,7 @@ class Data:
         """
         Initializes the Data object with a predefined array of integers.
         """
-        self.__integer_array = [1, 2, 3, 4, 5]
+        self.__integer_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
 
     def print_array(self):
         """
