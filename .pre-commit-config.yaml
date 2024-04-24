@@ -49,7 +49,6 @@ repos:
         name: pylint
         entry: pylint
         language: system
-        files: '^app/.*\.*'
         types: [python]
         args: ["-rn", # Only display messages
           "-sn"] # Don't display the score

@@ -12,7 +12,6 @@ tasks:
 
   default:
     aliases: ["help"]
-    silent: true
     desc: "prints help"
     cmd: task --list
 
