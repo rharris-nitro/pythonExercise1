@@ -1,25 +1,48 @@
 version: "3"
 
+vars:
+  RUN_DEBUGPY: '/tmp/debugpy --listen 0.0.0.0:5673 --wait-for-client'
+  SH_ENTRYPOINT: '/bin/sh'
+
 tasks:
+  # ------------------------------------------------------------------------------------------------
+  # - Help------------------------------------------------------------------------------------------
+  # ------------------------------------------------------------------------------------------------
+
+  default:
+    aliases: ["help"]
+    desc: "prints help"
+    cmd: task --list
+
+  # ------------------------------------------------------------------------------------------------
+  # -Build------------------------------------------------------------------------------------------
+  # ------------------------------------------------------------------------------------------------
+
   build:
-    cmds:
-      - docker-compose -f docker-compose.yml build
+    desc: builds dev image for main app and testing
+    cmd: docker-compose -f docker-compose.yml build
+
+  # ------------------------------------------------------------------------------------------------
+  # -Up---------------------------------------------------------------------------------------------
+  # ------------------------------------------------------------------------------------------------
 
   up:
+    desc: ups main app (USE_DEBUGPY=true for debug)
     env:
-      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}/tmp/debugpy --listen 0.0.0.0:5673 --wait-for-client app/main.py{{else}}{{end}}'
-    cmds:
-      - docker-compose -f docker-compose.yml up
-
-  build-test:
-    cmds:
-      - docker-compose -f docker-compose.test.yml build
+      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}{{.RUN_DEBUGPY}} -m app.main{{else}}{{end}}'
+    cmd: docker-compose -f docker-compose.yml up
 
   up-test:
+    desc: ups coverage and unit-testing (USE_DEBUGPY=true for unit-testing only)
     env:
-      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}/tmp/debugpy --listen 0.0.0.0:5673 --wait-for-client tests/test_main.py{{else}}{{end}}'
-    cmds:
-      - docker-compose -f docker-compose.test.yml up
+      BASE_ENTRYPOINT: '{{.SH_ENTRYPOINT}}'
+      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}-c "python {{.RUN_DEBUGPY}} -m pytest"{{else}}-c "coverage run -m pytest && coverage report && coverage html"{{end}}'
+    cmd: docker-compose -f docker-compose.yml -f docker-compose.test.yml up
 
-  build-all:
-    deps: [build, build-test]
+  # ------------------------------------------------------------------------------------------------
+  # -Pre-Commit-------------------------------------------------------------------------------------
+  # ------------------------------------------------------------------------------------------------
+
+  pre-commit:
+    desc: runs pre-commit hooks
+    cmd: pre-commit run --all-files

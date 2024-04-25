@@ -1,36 +1,17 @@
 """
-Module main: This module contains the main function that initializes an array
-of integers and prints it.
+This module serves as the entry point for the Python application. It initializes the Data class
+and uses it to print an array of integers to the console.
 """
 
-
-class Data:
-    """
-    Main class for handling integer arrays.
-    """
-
-    def __init__(self):
-        """
-        Initializes an array of integers with predefined values.
-        """
-        self.integer_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-    def print_array(self):
-        """
-        Prints the initialized array to the screen.
-        """
-        print(self.integer_array)
-
-    def get_array(self):
-        """
-        Returns the initialized array.
-        """
-        return self.integer_array
+from app.data import Data
 
 
 def main():
     """
-    Main function for creating Main instance and printing the array.
+    Main function for creating a Data instance and printing the array.
+
+    This function demonstrates the basic usage of the Data class by creating an instance,
+    initializing it with a predefined array of integers, and then printing this array.
     """
     data = Data()
     data.print_array()
