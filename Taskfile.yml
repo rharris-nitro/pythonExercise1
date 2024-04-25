@@ -2,7 +2,6 @@ version: "3"
 
 vars:
   RUN_DEBUGPY: '/tmp/debugpy --listen 0.0.0.0:5673 --wait-for-client'
-  PYTHON_ENTRYPOINT: 'python'
   SH_ENTRYPOINT: '/bin/sh'
 
 tasks:
@@ -21,9 +20,6 @@ tasks:
 
   build:
     desc: builds dev image for main app and testing
-    env:
-      BASE_ENTRYPOINT: '{{.PYTHON_ENTRYPOINT}}'
-      BASE_COMMAND: 'app/main.py'
     cmd: docker-compose -f docker-compose.yml build
 
   # ------------------------------------------------------------------------------------------------
@@ -33,8 +29,7 @@ tasks:
   up:
     desc: ups main app (USE_DEBUGPY=true for debug)
     env:
-      BASE_ENTRYPOINT: '{{.PYTHON_ENTRYPOINT}}'
-      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}{{.RUN_DEBUGPY}} -m app.main{{else}}-m app.main{{end}}'
+      BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}{{.RUN_DEBUGPY}} -m app.main{{else}}{{end}}'
     cmd: docker-compose -f docker-compose.yml up
 
   up-test:
@@ -42,7 +37,7 @@ tasks:
     env:
       BASE_ENTRYPOINT: '{{.SH_ENTRYPOINT}}'
       BASE_COMMAND: '{{if eq .USE_DEBUGPY "true"}}-c "python {{.RUN_DEBUGPY}} -m pytest"{{else}}-c "coverage run -m pytest && coverage report && coverage html"{{end}}'
-    cmd: docker-compose -f docker-compose.yml up
+    cmd: docker-compose -f docker-compose.yml -f docker-compose.test.yml up
 
   # ------------------------------------------------------------------------------------------------
   # -Pre-Commit-------------------------------------------------------------------------------------

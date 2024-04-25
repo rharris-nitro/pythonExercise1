@@ -12,5 +12,4 @@ services:
     volumes:
       - ./app:/pythonExercise1/app
       - ./tests:/pythonExercise1/tests
-    entrypoint: ${BASE_ENTRYPOINT}
     command: ${BASE_COMMAND}

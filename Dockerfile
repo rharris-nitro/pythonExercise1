@@ -9,7 +9,7 @@ FROM base AS main
     COPY ./app /pythonExercise1/app
 
     ENTRYPOINT ["python"]
-    CMD ["main.py"]
+    CMD ["-m", "app.main"]
 
 
 FROM main AS dev

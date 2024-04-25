@@ -14,7 +14,6 @@
   - [Testing App](#testing-app)
 - [Debugging](#debugging)
   - [Debugging main](#debugging-main)
-- [Coverage Testing](#coverage-testing)
 
 <!-- mdformat-toc end -->
 
@@ -64,11 +63,15 @@ After setting up, you should open the folder in VSCode in the directory where th
 - Build and run a container using Task:
 
   ```bash
+  task build
   task up
   ```
 
 You should see the output of your Python script:
-\[1, 2, 3, 4, 5, 6, 7, 8, 9, 10\]
+
+```bash
+my-python-app  | [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+```
 
 ### Testing App<a name="testing-app"></a>
 
@@ -81,17 +84,29 @@ You should see the output of your Python script:
 You should see the output of your pytest test:
 
 ```bash
-============================= test session starts ==============================
-platform linux -- Python 3.11.8, pytest-7.4.3, pluggy-1.4.0
-rootdir: /
-collected 2 items
-
-test_main.py ..                                                          [100%]
-
-============================== 2 passed in 0.01s ===============================
+my-python-app  | ============================= test session starts ==============================
+my-python-app  | platform linux -- Python 3.11.9, pytest-7.4.3, pluggy-1.5.0
+my-python-app  | rootdir: /pythonExercise1
+my-python-app  | collected 3 items
+my-python-app  |
+my-python-app  | tests/test_main.py ...                                                   [100%]
+my-python-app  |
+my-python-app  | ============================== 3 passed in 0.06s ===============================
+my-python-app  | Name                 Stmts   Miss  Cover
+my-python-app  | ----------------------------------------
+my-python-app  | app/__init__.py          0      0   100%
+my-python-app  | app/data.py              7      0   100%
+my-python-app  | tests/__init__.py        0      0   100%
+my-python-app  | tests/test_main.py      12      0   100%
+my-python-app  | ----------------------------------------
+my-python-app  | TOTAL                   19      0   100%
+my-python-app  | Wrote HTML report to htmlcov/index.html
 ```
 
+This shows the pytest on the first half, the coverage report on the second half, and the last line shows there is a nicer HTML format at the given folder path if you don't like the CLI report format
+
 For more info about how pyTest works, visit [Pytest for Absolute Beginners](https://medium.com/analytics-vidhya/pytest-for-absolute-beginners-4a166324b350)
+For more info on coverage.py, go to \<coverage-testing.md>
 
 ## Debugging<a name="debugging"></a>
 
@@ -103,27 +118,8 @@ To debug the main image in VSCode, run the image using task and set USE_DEBUG to
 task up USE_DEBUGPY=true
 ```
 
-The same can be done for the test image
+The same can be done for the test image (FYI: this can only debug unit test, not coverage test)
 
 Go to the Run and Debug section in VSCode, make sure the Debugger is on Remote Attach, and press the green play button.
 
 See \<debugging.md> for more info
-
-## Coverage Testing<a name="coverage-testing"></a>
-
-To get coverage results in CLI:
-
-```bash
-task coverage-report
-```
-
-To get coverage results in a nice local HTML:
-
-```bash
-task coverage-html
-```
-
-html file will appear in root folder
-Open `index.html` in your browser
-
-For more info on coverage.py, go to \<coverage-testing.md>
