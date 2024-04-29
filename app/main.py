@@ -3,38 +3,38 @@ Module main: This module contains the main function that initializes an array
 of integers and prints it.
 """
 
+import argparse
 
-class Data:
+from app.data import Data
+
+
+def read_file(file_path):
     """
-    Main class for handling integer arrays.
+    Reads a file and returns an array of integers.
     """
-
-    def __init__(self):
-        """
-        Initializes an array of integers with predefined values.
-        """
-        self.integer_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
-
-    def print_array(self):
-        """
-        Prints the initialized array to the screen.
-        """
-        print(self.integer_array)
-
-    def get_array(self):
-        """
-        Returns the initialized array.
-        """
-        return self.integer_array
+    with open(file_path, "r", encoding="utf-8") as file:
+        return [int(x) for x in file.read().split()]
 
 
-def main():
+def main(file_path):
     """
-    Main function for creating Main instance and printing the array.
+    Main function for creating a Data instance and printing the array.
+
+    This function demonstrates the basic usage of the Data class by creating an instance,
+    initializing it with the contents of a file, and then printing this array.
     """
-    data = Data()
+    integer_array = read_file(file_path)
+    data = Data(integer_array)
     data.print_array()
 
 
 if __name__ == "__main__":
-    main()
+    parser = argparse.ArgumentParser(description="Process a file containing integers.")
+    parser.add_argument(
+        "file_path",
+        default="app/input/integers.txt",
+        type=str,
+        help="Path to the file containing integers",
+    )
+    args = parser.parse_args()
+    main(args.file_path)

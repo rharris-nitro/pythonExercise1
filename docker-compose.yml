@@ -11,4 +11,4 @@ services:
     volumes:
       - ./app:/pythonExercise1/app
       - ./tests:/pythonExercise1/tests
-    command: ${BASE_COMMAND:- app/main.py}
+    command: ${BASE_COMMAND} ${BASE_ARGS}
