@@ -13,11 +13,15 @@ class Data:
         array (list): An array of integers.
     """
 
-    def __init__(self):
+    def __init__(self, integer_array=None):
         """
-        Initializes the Data object with a predefined array of integers.
+        Initializes the Data object with a predefined array of integers
+        or an empty array if none is provided.
         """
-        self.__integer_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        if integer_array is None:
+            self.__integer_array = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+        else:
+            self.__integer_array = integer_array
 
     def print_array(self):
         """

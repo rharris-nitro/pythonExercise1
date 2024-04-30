@@ -12,4 +12,4 @@ services:
     volumes:
       - ./app:/pythonExercise1/app
       - ./tests:/pythonExercise1/tests
-    command: ${BASE_COMMAND}
+    command: ${BASE_COMMAND} ${BASE_ARGS}
