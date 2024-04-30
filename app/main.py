@@ -1,6 +1,6 @@
 """
-Module main: This module contains the main function that initializes an array
-of integers and prints it.
+This module serves as the entry point for the Python application. It initializes the Data class
+and uses it to print an array of integers to the console.
 """
 
 import argparse

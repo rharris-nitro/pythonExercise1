@@ -11,7 +11,12 @@ To setup:
 
 Now when you commit changes to this repo, checks will run.
 OR
-If you would like to run the pre-commits before committing you can enter `pre-commit run --all-files`.
+If you would like to run the pre-commits before committing you can enter:
+
+```bash
+task pre-commit
+```
+
 To run a specific hook, enter `pre-commit run <hook-id> --all-files` with `<hook-id>` being the name of the hook.
 
 Recommendations:
