@@ -31,7 +31,7 @@ def main(file_path):
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Process a file containing integers.")
     parser.add_argument(
-        "file_path",
+        "--file_path",
         default="app/input/integers.txt",
         type=str,
         help="Path to the file containing integers",
